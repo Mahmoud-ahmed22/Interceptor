@@ -19,7 +19,7 @@ import { CreateNotesComponent } from './create-notes/create-notes.component';
   imports: [
     CommonModule,
     NotesRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class NotesModule { }

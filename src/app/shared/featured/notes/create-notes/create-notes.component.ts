@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { NotesService } from '../notes.service';
 
 @Component({
   selector: 'app-create-notes',
@@ -9,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class CreateNotesComponent implements OnInit {
   noteForm:any;
   success: boolean = false;
-constructor(private fb:FormBuilder) {
+constructor(private fb:FormBuilder, private notesService:NotesService) {
   
 }
 
@@ -21,10 +22,12 @@ ngOnInit(): void {
   this.initform();
 }
 submitForm(){
-  if (this.noteForm.valid) {
-    console.log(this.noteForm.value);
+  // if (this.noteForm.valid) {
+    this.notesService.createNotes(this.noteForm.value).subscribe((res)=>{
+      console.log(res);
+    });
     this.success = true;
-  }
+  // }
 };
 
 initform() {
