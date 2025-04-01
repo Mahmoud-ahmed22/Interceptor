@@ -23,8 +23,10 @@ ngOnInit(): void {
 }
 submitForm(){
   // if (this.noteForm.valid) {
-    this.notesService.createNotes(this.noteForm.value).subscribe((res)=>{
+    this.notesService.createNotes(this.noteForm.value).subscribe(res=>{
       console.log(res);
+    }, err=> {
+      console.log(err);
     });
     this.success = true;
   // }
@@ -34,7 +36,7 @@ initform() {
   this.noteForm = this.fb.group({
     title: ['', Validators.required],
     priority: ['', Validators.required],
-    tag: ['', Validators.required],
+    tags: ['', Validators.required],
     content: ['', Validators.required],
     category: ['', Validators.required],
   });

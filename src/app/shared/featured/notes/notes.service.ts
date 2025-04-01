@@ -8,18 +8,14 @@ export class NotesService {
 
   constructor(private http:HttpClient) { }
 
-  userToken = "";
+  userToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3NDM1MzU3ODEsImV4cCI6MTc0MzU3ODk4MX0.IMpOIJhQjgCxEGeTk0xRrxwPXAJMwWZAAjA-9sh8qKU";
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'authorization': 'Bearer'
-    })
-  }
+
 
   createNotes(data:any) {
     const url = "http://localhost:8000/notes";
 
-    return this.http.post(url, data, this.httpOptions);
+    return this.http.post(url, data);
   }
 
 
